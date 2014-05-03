@@ -38,7 +38,7 @@ dependencies {
     compile 'org.eclipse.jetty:jetty-webapp:9.+'
     //compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("junit:junit")
-    //testCompile "org.springframework:spring-test"
+    testCompile "org.springframework:spring-test"
 }
 
 configurations {
