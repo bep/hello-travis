@@ -1,4 +1,4 @@
-hello-travis
+Hello Travis
 ============
 
-Just a small Gradle-driven project to test out Travis CI-relatedissues.
+Just a small Gradle- and Spring Boot-driven project to test out Travis CI-related issues.

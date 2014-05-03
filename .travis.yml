@@ -1,0 +1,7 @@
+# Configuration for CI build
+
+language: java
+
+jdk:
+  - oraclejdk8
+

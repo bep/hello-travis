@@ -1,0 +1,53 @@
+def vJavaLang = '1.8'
+
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.0.BUILD-SNAPSHOT") // current release = 1.0.2.RELEASE
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+
+targetCompatibility = vJavaLang
+sourceCompatibility = vJavaLang
+
+jar {
+    baseName = 'hello-travis'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        // prefer Jetty
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    // spring-boot-starter-jetty fetches Jetty 8 ... too old!
+    compile 'org.eclipse.jetty:jetty-webapp:9.+'
+    //compile("org.springframework.boot:spring-boot-starter-actuator")
+    testCompile("junit:junit")
+    //testCompile "org.springframework:spring-test"
+}
+
+configurations {
+    // replaced with jcl-over-slf4j
+    all*.exclude group: 'commons-logging', module: 'commons-logging'
+    // replaced with log4j-over-slf4j
+    all*.exclude group: 'log4j', module: 'log4j'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}
