@@ -1,7 +1,9 @@
-def vJavaLang = '1.8'
+def vJavaLang = '1.7'
 
 buildscript {
+
     repositories {
+        maven { url "http://repo.spring.io/libs-release" }
         maven { url "http://repo.spring.io/libs-snapshot" }
         mavenLocal()
     }
@@ -18,6 +20,7 @@ apply plugin: 'spring-boot'
 
 targetCompatibility = vJavaLang
 sourceCompatibility = vJavaLang
+
 
 jar {
     baseName = 'hello-travis'
@@ -36,7 +39,7 @@ dependencies {
     }
     // spring-boot-starter-jetty fetches Jetty 8 ... too old!
     compile 'org.eclipse.jetty:jetty-webapp:9.+'
-    //compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("junit:junit")
     testCompile "org.springframework:spring-test"
 }
@@ -49,7 +52,7 @@ configurations {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+    gradleVersion = '1.12'
 }
 
-task stage(dependsOn: ['clean', 'installApp'])
+task stage(dependsOn: ['assemble'])

@@ -1,7 +1,9 @@
-# Configuration for CI build
-
 language: java
-
 jdk:
-  - oraclejdk8
-
+- oraclejdk7
+deploy:
+  provider: heroku
+  api_key:
+    secure: TdpgYXEyXDqjDpwzLL8AcTIEyrmUw1yliJ5aNAHiIKInk6C6xwTT1i5ASc/8fhCAxddNJN7c4OXTyjAzcaX69pFYYaiB45+mZBSiZoddMBMWZDobpipe32SH69b7N5ZrJ3TxnC9LoegkuJw7JzaHCShbnALz1l2QariEHRYblwM=
+  app: hello-travis
+  strategy: git

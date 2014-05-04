@@ -1,0 +1,28 @@
+project:
+  artifactId: hello-travis
+  name: hello-travis
+  version: X.X.X.X
+  description: hello-travis
+
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
+  spring:
+    profiles: ${spring.profiles.active:default}
+
+spring:
+  main:
+    sources: com.bepsays.travis.TravisApplication
+security:
+  basic:
+    enabled: false
+  require_ssl: false
+  headers:
+    hsts: domain
+  user:
+    password: ${ADMIN_PASSWORD:}
+
+

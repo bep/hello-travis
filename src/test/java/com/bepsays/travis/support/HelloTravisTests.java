@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.StringContains.*;
 import static org.junit.Assert.assertThat;
 
 
@@ -31,6 +32,6 @@ public class HelloTravisTests {
                 "http://localhost:" + this.port, String.class);
 
         assertThat(entity.getStatusCode(), is(HttpStatus.OK));
-        assertThat(entity.getBody(), is("Hey, Travis!"));
+        assertThat(entity.getBody(), containsString("Hey, Travis!"));
      }
 }
