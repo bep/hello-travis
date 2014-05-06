@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 class HelloTravis {
 
     @RequestMapping("/")
-    String index() {
+    String hey() {
         return "Hey, Travis!";
     }
 
