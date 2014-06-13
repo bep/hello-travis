@@ -9,6 +9,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.1.RELEASE")
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.3.0'
     }
 }
 
@@ -16,6 +17,8 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'jacoco'
+apply plugin: 'coveralls'
 
 
 targetCompatibility = vJavaLang
@@ -56,6 +59,13 @@ configurations {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.12'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
 }
 
 task stage(dependsOn: ['assemble'])

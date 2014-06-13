@@ -7,3 +7,10 @@ deploy:
     secure: TdpgYXEyXDqjDpwzLL8AcTIEyrmUw1yliJ5aNAHiIKInk6C6xwTT1i5ASc/8fhCAxddNJN7c4OXTyjAzcaX69pFYYaiB45+mZBSiZoddMBMWZDobpipe32SH69b7N5ZrJ3TxnC9LoegkuJw7JzaHCShbnALz1l2QariEHRYblwM=
   app: hello-travis
   strategy: git
+
+env:
+- TERM=dumb
+
+
+after_success:
+- gradle jacocoTestReport coveralls
