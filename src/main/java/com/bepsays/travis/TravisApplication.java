@@ -13,12 +13,7 @@ import org.springframework.boot.SpringApplication;
  */
 public class TravisApplication {
 
-    private static Logger logger = LoggerFactory.getLogger(TravisApplication.class);
-
     public static void main(String[] args) {
-
-        logger.info("Starting the Travis app ...");
-
         SpringApplication.run(TravisConfig.class, args);
     }
 }
