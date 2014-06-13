@@ -13,8 +13,6 @@
     <!-- always log high-level information about application startup -->
     <logger level="INFO" name="com.bepsays.travis.TravisApplication"/>
 
-    <!-- deve debugging -->
-    <logger level="DEBUG" name="edash"/>
 
     <!-- log generated password for admin endpoints, e.g. /env, /beans -->
     <!-- See http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints -->
