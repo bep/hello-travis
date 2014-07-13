@@ -15,10 +15,10 @@ public class TravisApplicationTests {
     @Test
     public void startApplication() {
         TravisApplication.main(new String[] {});
-        assertThat(getOutput(), containsString("Started TravisApplication"));
+        assertThat(output(), containsString("Started TravisApplication"));
     }
 
-    private String getOutput() {
+    private String output() {
         return this.outputCapture.toString();
     }
 
